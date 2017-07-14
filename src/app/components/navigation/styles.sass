@@ -1,0 +1,44 @@
+@import "../../../vars"
+
+.navigation
+  padding: $step*3 0
+  width: $big-step*2
+  height: 100%
+  &-list
+    list-style-type: none
+    margin: 0
+    padding: 0 $step*3 0 0
+    height: 100%
+    &-item
+      display: inline-block
+      width: 100%
+      text-decoration: none
+      line-height: $step*5
+      color: $reverse-background
+      border-left: 4px solid transparent
+      border-bottom: 1px solid transparent
+      vertical-align: top
+      &.no-icon
+        padding-left: $step*9
+        &:before
+          content: none
+      &:before
+        vertical-align: top
+        display: inline-block
+        content: ''
+        height: $step*3
+        width: $step*3
+        margin: $step $step*3
+        background: url('../../../assets/dashboard_24px_white.svg') center no-repeat
+        background-size: contain
+        fill: $active
+      &:hover, &.active
+        border-left: 4px solid $active
+        color: $active
+        &::before
+          background: url('../../../assets/dashboard_24px_aquamarine.svg') center no-repeat
+          background-size: contain
+
+      &.active
+        border-bottom: 1px solid $active
+        font-weight: 400

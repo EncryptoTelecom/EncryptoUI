@@ -1,0 +1,47 @@
+<div class="header">
+  <div class="userdata">
+    <div class="userdata-photo">
+      <img src="../../../assets/placeholder.png" alt="!!PLACEHOLDER!!">
+    </div>
+    <div class="userdata-info">
+      <div class="userdata-info-name">
+        Alex Freeman
+      </div>
+      <div class="userdata-info-balance">
+        balance
+        <span> $58</span>
+      </div>
+    </div>
+  </div>
+  <div class="buttons">
+    <div class="buttons-call">
+      <div class="buttons-call-item" (click)="clicked('Dialer')">
+        <img src="../../../assets/dashboard_24px_white.svg"/>
+        <span>Dialer</span>
+      </div>
+      <div class="buttons-call-item" (click)="clicked('Call log')">
+        <img src="../../../assets/dashboard_24px_white.svg"/>
+        <span>Call log</span>
+      </div>
+      <div class="buttons-call-item" (click)="clicked('Contacts')">
+        <img src="../../../assets/dashboard_24px_white.svg"/>
+        <span>Contacts</span>
+      </div>
+      <div class="buttons-call-item"  (click)="clicked('Chat')">
+        <img src="../../../assets/dashboard_24px_white.svg"/>
+        <span>Chat</span>
+      </div>
+    </div>
+    <div class="buttons-profile">
+      <div class="buttons-profile-item" (click)="clicked('Search')">
+        <img src="../../../assets/dashboard_24px_white.svg"/>
+      </div>
+      <div class="buttons-profile-item" (click)="clicked('Refresh')">
+        <img src="../../../assets/dashboard_24px_white.svg"/>
+      </div>
+      <div class="buttons-profile-item" (click)="clicked('Logout')">
+        <img src="../../../assets/dashboard_24px_white.svg"/>
+      </div>
+    </div>
+  </div>
+</div>

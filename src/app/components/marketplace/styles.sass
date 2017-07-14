@@ -1,0 +1,47 @@
+@import "../../../vars"
+
+.marketplace
+  padding: $step*4
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  align-items: flex-start
+  &-item
+    background: rgba($reverse-background, .05)
+    display: flex
+    flex-direction: column
+    overflow-wrap: break-word
+    height: $big-step * 1.75
+    padding: $step * 4
+    position: relative
+    &-btn-wrap
+      display: flex
+      flex-direction: row
+      position: absolute
+      bottom: 0
+      left: 0
+      width: 100%
+      > .slider-btn
+        line-height: $step * 4
+        &.bought
+          background: rgba($background, .5)
+        &.buy
+          background: $active
+    &-status
+      display: block
+      position: absolute
+      background: url('../../../assets/dashboard_24px_white.svg') center no-repeat
+      top: $step * 3
+      right: $step * 3
+      height: $step * 4
+      width: $step * 4
+    &-title
+      font-size: $step * 3
+    &-description > div
+      margin-top: $step*2
+    &-wrap
+      display: flex
+      flex-direction: column
+      max-width: 25%
+      flex: 1 1 25%
+      padding: $step * 2

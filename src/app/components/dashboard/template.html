@@ -1,0 +1,184 @@
+<div class="dashboard">
+  <div class="dashboard-item balance">
+    <div class="dashboard-item-content">
+      <div class="title-row">
+        <div class="title-row-name">Balance</div>
+        <div class="title-row-name-sub">$58</div>
+      </div>
+      <div class="title-row">
+        <div class="title-row-name">Etc</div>
+        <div class="title-row-name-sub">0.00000001</div>
+      </div>
+      <div class="buttons-row">
+        <div class="dashboard-button">Transaction history</div>
+        <div class="dashboard-button">Invoices</div>
+        <div class="dashboard-button">Refill</div>
+      </div>
+    </div>
+  </div>
+  <div class="dashboard-item tariff">
+    <div class="dashboard-item-content">
+      <div class="title-row">
+        <div class="title-row-name">Tariff plan</div>
+        <a class="title-row-value" routerLink="/#">Maximum</a>
+      </div>
+      <div class="dashboard-item-body">
+        <div class="dashboard-item-body-row">
+          <div class="dashboard-item-body-row-title">
+            Next monthly payment
+          </div>
+          <div class="dashboard-item-body-row-value">
+            July 23
+          </div>
+        </div>
+        <div class="dashboard-item-body-row">
+          <div class="dashboard-item-body-row-title">
+            Estimated payment
+          </div>
+          <div class="dashboard-item-body-row-value">
+            $99
+          </div>
+        </div>
+      </div>
+      <div class="buttons-row">
+        <div class="dashboard-button">Change tariff plan</div>
+      </div>
+    </div>
+  </div>
+  <div class="dashboard-item calls">
+    <div class="dashboard-item-content">
+      <div class="title-row">
+        <div class="title-row-name">Calls</div>
+      </div>
+      <div class="dashboard-item-body">
+        <div *ngFor="let item of calls">
+          <div class="call-date">{{dateValue(item.date)}}</div>
+          <div class="call-info" *ngFor="let call of item.calls">
+            <div class="call-info-data">
+              <div class="call-info-data-name">
+                {{call.name}}
+              </div>
+              <div class="call-info-data-number">
+                {{call.number}}
+              </div>
+            </div>
+            <div class="call-info-buttons">
+              <div class="call-info-buttons-duration">
+                {{toMinutes(call.duration)}} m {{call.duration - (60 * toMinutes(call.duration))}} s
+              </div>
+              <div class="call-info-buttons-buttons">
+                <img src="../../../assets/dashboard_24px_white.svg"/>
+                <img src="../../../assets/dashboard_24px_white.svg"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="buttons-row">
+        <div class="dashboard-button">Details</div>
+      </div>
+    </div>
+  </div>
+  <div class="dashboard-item numbers">
+    <div class="dashboard-item-content">
+      <div class="title-row">
+        <div class="title-row-name">Phone numbers</div>
+      </div>
+      <div class="dashboard-item-body">
+        <div class="dashboard-item-body-row">
+          <div class="dashboard-item-body-row-title">
+            1000001
+          </div>
+          <div class="dashboard-item-body-row-value">
+            2 of 8 ext. online
+          </div>
+        </div>
+        <div class="dashboard-item-body-row">
+          <div class="dashboard-item-body-row-title">
+            1000002
+          </div>
+          <div class="dashboard-item-body-row-value">
+            1 of 3 ext. online
+          </div>
+        </div>
+        <div class="dashboard-item-body-row">
+          <div class="dashboard-item-body-row-title">
+            +7 (473) 200-01-10
+          </div>
+          <div class="dashboard-item-body-row-value">
+            online
+          </div>
+        </div>
+      </div>
+      <div class="buttons-row">
+        <div class="dashboard-button">Details</div>
+      </div>
+    </div>
+  </div>
+  <div class="dashboard-item drive">
+    <div class="dashboard-item-content">
+      <div class="dashboard-item-body-column">
+        <div class="title-row">
+          <div class="title-row-name">Drive</div>
+        </div>
+        <div class="dashboard-item-body">
+          <div class="dashboard-item-body-row">
+            <div class="dashboard-item-body-row-title">
+              Total size:
+            </div>
+            <div class="dashboard-item-body-row-value">
+              {{available + used + trash}} mb
+            </div>
+          </div>
+          <div class="dashboard-item-body-row">
+            <div class="dashboard-item-body-row-title">
+              Used space:
+            </div>
+            <div class="dashboard-item-body-row-value">
+              {{used}} mb
+            </div>
+          </div>
+          <div class="dashboard-item-body-row">
+            <div class="dashboard-item-body-row-title">
+              Trash space:
+            </div>
+            <div class="dashboard-item-body-row-value">
+              {{trash}} mb
+            </div>
+          </div>
+          <div class="dashboard-item-body-row">
+            <div class="dashboard-item-body-row-title">
+              Total usage:
+            </div>
+            <div class="dashboard-item-body-row-value">
+              {{used + trash}} mb
+            </div>
+          </div>
+          <div class="dashboard-item-body-row">
+            <div class="dashboard-item-body-row-title">
+              Available space:
+            </div>
+            <div class="dashboard-item-body-row-value">
+              {{available}} mb
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dashboard-item-body-column circle">
+        <div class="circle-value">{{((used + trash)/(available + used + trash))*100 | number: '1.0-0'}}%</div>
+        <canvas baseChart
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"
+                [options]="doughnutChartCutout"
+                [colors]="doughnutChartColors"
+                [legend]="false"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="dashboard-item warning">
+    <div class="warning-inner-box">
+      <div class="warning-inner-box-content">Service is currently in beta. Encryption is performed with usage of base services (Secure Communication & Secure RTP (SRTP). Due to this, we strongly recommend you to use service only for purposes of PBX functional testing.</div>
+    </div>
+  </div>
+</div>

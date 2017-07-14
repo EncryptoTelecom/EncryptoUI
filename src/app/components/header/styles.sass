@@ -1,0 +1,80 @@
+@import "../../../vars"
+
+.header
+  height: $big-step
+  display: flex
+  flex-direction: row
+  align-items: center
+  padding: $step*3
+  .userdata
+    display: flex
+    flex-direction: row
+    flex: 1
+    &-photo
+      display: flex
+      height: $step*7
+      width: $step*7
+      border-radius: 50%
+      border: 1px solid $reverse-background
+      overflow: hidden
+      margin-right: $step*2
+    &-info
+      display: flex
+      flex: 1
+      flex-direction: column
+      &-name, &-balance
+        display: flex
+        flex: 1
+        padding: $step/2
+      &-name
+        align-items: flex-end
+      &-balance
+        color: $success
+        > span
+          margin-left: $step/2
+  .buttons
+    display: flex
+    flex: 4
+    flex-direction: row
+    &-call
+      display: flex
+      margin-left: auto
+      &-item
+        display: flex
+        height: $step*12
+        width: $step*12
+        background: $active
+        padding: $step*2
+        justify-content: space-between
+        cursor: pointer
+        flex-direction: column
+        &:hover
+          opacity: .9
+        &:not(:last-child)
+          margin-right: $step
+        > span
+          align-self: center
+        > img
+          display: flex
+          align-self: center
+          cursor: pointer
+          height: $step*4
+          width: $step*4
+    &-profile
+      display: flex
+      margin-left: auto
+      &-item
+        display: flex
+        height: $step*4
+        width: $step*4
+        justify-content: center
+        flex-direction: column
+        align-self: center
+        &:not(:last-child)
+          margin-right: $step*2
+        > img
+          align-self: center
+          cursor: pointer
+          height: $step*4
+          width: $step*4
+

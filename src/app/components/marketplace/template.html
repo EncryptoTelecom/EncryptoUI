@@ -1,0 +1,16 @@
+<div class="marketplace">
+  <div *ngFor="let item of items" class="marketplace-item-wrap">
+    <div class="marketplace-item">
+      <div class="marketplace-item-status" *ngIf="item.status"></div>
+      <div class="marketplace-item-title">{{item.name}}</div>
+      <div class="marketplace-item-description">
+        <div *ngFor="let descr of item.description">{{descr}}</div>
+      </div>
+      <div class="marketplace-item-btn-wrap">
+        <div class="slider-btn details">Details</div>
+        <div class="slider-btn bought" *ngIf="item.status">Bought</div>
+        <div class="slider-btn buy" *ngIf="!item.status">Buy now</div>
+      </div>
+    </div>
+  </div>
+</div>

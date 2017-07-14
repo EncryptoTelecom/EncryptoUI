@@ -1,0 +1,154 @@
+@import "../../../vars"
+
+.dashboard
+  height: 100%
+  width: 100%
+  display: grid
+  grid-gap: $step*3
+  grid-template-columns: 5fr 5fr 3fr
+  grid-template-rows: 3fr 3fr 1fr
+  grid-template-areas: "balance tariff calls" "numbers drive calls" "warning warning warning"
+  &-button
+    line-height: $step*4
+    padding: 0 $step
+    cursor: pointer
+    &:hover
+      background: rgba(32, 25, 25, .1)
+  &-item
+    height: 100%
+    width: 100%
+    padding: $step*6 $step*5 $step*3
+    display: grid
+    border-radius: 2px
+    &.balance
+      display: flex
+      grid-area: balance
+      background: $success
+    &.tariff
+      display: flex
+      grid-area: tariff
+      background: $secondary-accent
+    &.calls
+      display: flex
+      grid-area: calls
+      background: $default
+      .dashboard-item-body
+        margin: 0 (-$step*6)
+        .call
+          &-date
+            display: flex
+            height: $step*3
+            padding: 0 $step*4
+            flex: 1
+            align-items: center
+            background-color: rgba(255, 255, 255, .2)
+            opacity: .4
+          &-info
+            padding: 0 $step*3
+            margin: $step 0
+            flex-direction: row
+            display: flex
+            &-data
+              display: flex
+              flex-direction: column
+              margin-bottom: $step/2
+              flex: 1 0 auto
+            &-buttons
+              display: flex
+              flex-direction: column
+              width: 30%
+              &-duration
+                margin-bottom: $step/2
+                align-self: flex-end
+              &-buttons
+                display: flex
+                flex-direction: row
+                align-self: flex-end
+                > img
+                  display: flex
+                  flex-direction: row
+                  height: $step*3
+                  width: $step*3
+                  cursor: pointer
+                  &:first-child
+                    margin-right: $step
+      .dashboard-button
+        margin-left: auto
+    &.numbers
+      display: flex
+      grid-area: numbers
+      background: $primary-accent
+      .dashboard-button
+        margin-left: auto
+    &.drive
+      display: flex
+      grid-area: drive
+      background: $primary-accent
+      padding-bottom: $step*6
+      > .dashboard-item-content
+        flex-direction: row
+    &.warning
+      display: flex
+      height: fit-content
+      grid-area: warning
+      background: $warning
+      padding: $step*4 $step*6
+    &-content
+      display: flex
+      flex: 1
+      flex-direction: column
+      > div:not(.buttons-row)
+        padding: 0 $step
+      .title-row
+        display: flex
+        flex-direction: row
+        font-size: $step*4
+        line-height: $step*4
+        text-transform: uppercase
+        margin-bottom: $step*2
+        &-name
+          display: flex
+          flex: 1
+          &-sub
+            display: flex
+        &-value
+          display: flex
+          font-size: initial
+          line-height: initial
+          font-weight: 400
+          text-transform: none
+          align-items: flex-end
+      .buttons-row
+        display: flex
+        flex-direction: row
+        margin-top: auto
+        > div, a
+          display: flex
+          &:not(:last-child)
+            margin-right: auto
+    &-body
+      &-row
+        display: flex
+        flex-direction: row
+        margin-bottom: $step
+        &-title
+          display: flex
+          flex: 1
+        &-value
+          display: flex
+      &-column
+        display: flex
+        flex: 1
+        flex-direction: column
+        > .dashboard-item-body
+          margin-top: auto
+          font-weight: 400
+        &.circle
+          width: 30%
+          display: flex
+          align-items: center
+          justify-content: center
+          > .circle-value
+            position: absolute
+            display: flex
+            font-size: $step*8

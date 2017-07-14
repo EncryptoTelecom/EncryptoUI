@@ -1,0 +1,75 @@
+<div class="book">
+  <div class="table-area">
+    <div class="table">
+      <div class="table-before">
+        <div class="table-before-row">
+          <div class="primary-btn">+ New contact</div>
+        </div>
+      </div>
+      <div class="table-head">
+        <div class="table-row">
+          <div class="table-column">First name</div>
+          <div class="table-column">Last name</div>
+          <div class="table-column">Phone</div>
+          <div class="table-column">E-mail</div>
+          <div class="table-column">Company name</div>
+          <div class="table-column">Country</div>
+        </div>
+      </div>
+      <div class="table-body">
+        <div class="table-row" [ngClass]="{'active': item === selectedItem}" *ngFor="let item of AdressBook" (click)="(selectedItem = item) && (slider = true)">
+          <div class="table-column">{{item.firstName}}</div>
+          <div class="table-column">{{item.lastName}}</div>
+          <div class="table-column">{{item.externalNumber}} {{item.innerNumber}}</div>
+          <div class="table-column">{{item.email}}</div>
+          <div class="table-column">{{item.company}}</div>
+          <div class="table-column">{{item.country}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="slider-contact" [ngClass]="{'active': slider}">
+      <div class="slider-contact-item">
+        <div class="slider-contact-item-name">First name</div>
+        <div class="slider-contact-item-value">{{selectedItem.firstName}}</div>
+      </div>
+      <div class="slider-contact-item">
+        <div class="slider-contact-item-name">Last name</div>
+        <div class="slider-contact-item-value">{{selectedItem.lastName}}</div>
+      </div>
+      <div class="slider-contact-item">
+        <div class="slider-contact-item-name">Phone</div>
+        <div class="slider-contact-item-value">{{selectedItem.externalNumber}} {{selectedItem.innerNumber}}</div>
+      </div>
+      <div class="slider-contact-item">
+        <div class="slider-contact-item-name">E-mail</div>
+        <div class="slider-contact-item-value">{{selectedItem.lastName}}</div>
+      </div>
+      <div class="slider-contact-item">
+        <div class="slider-contact-item-name">Company name</div>
+        <div class="slider-contact-item-value">{{selectedItem.company}}</div>
+      </div>
+      <div class="slider-contact-item">
+        <div class="slider-contact-item-name">Country</div>
+        <div class="slider-contact-item-value">{{selectedItem.country}}</div>
+      </div>
+      <div class="user-danger-btn" (click)="log('User ' + selectedItem.firstName + ' ' + selectedItem.lastName + ' blocked!')">
+        Block user
+      </div>
+      <div class="slider-contact-buttons-block">
+        <div class="slider-btn close" (click)="(slider = false) && (selectedItem = {})">
+          Close
+        </div>
+        <div class="slider-btn edit" (click)="log('Edit button clicked!')">
+          Edit
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pagination">
+    <div class="previous-page"><<</div>
+    <div class="previous-page">Prev</div>
+    1 of 10
+    <div class="next-page">Next</div>
+    <div class="next-page">>></div>
+  </div>
+</div>
